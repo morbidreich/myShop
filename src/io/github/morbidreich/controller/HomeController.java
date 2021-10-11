@@ -13,6 +13,7 @@ import io.github.morbidreich.dao.CategoryDAO;
 import io.github.morbidreich.dao.ProductDAO;
 import io.github.morbidreich.entity.Category;
 import io.github.morbidreich.entity.Product;
+import io.github.morbidreich.service.SearchResultService;
 
 @Controller
 @RequestMapping("/")
@@ -23,6 +24,9 @@ public class HomeController {
 	
 	@Autowired
 	CategoryDAO categoryDAO;
+	
+	@Autowired
+	SearchResultService srs;
 	
 	String searchPhrase;
 	
@@ -51,7 +55,9 @@ public class HomeController {
 		System.out.println(searchPhrase);
 		System.out.println(selectedCategory);
 		
+		Product productFound = srs.search(selectedCategory, searchPhrase);
 		
+		model.addAttribute("productFound", productFound);
 		model.addAttribute("searchPhrase", searchPhrase);
 		model.addAttribute("selectedCategory", selectedCategory);
 		
