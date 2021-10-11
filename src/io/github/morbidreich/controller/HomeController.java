@@ -52,16 +52,16 @@ public class HomeController {
 		String searchPhrase = req.getParameter("searchPhrase");
 		String selectedCategory = req.getParameter("category");
 		
-		System.out.println(searchPhrase);
-		System.out.println(selectedCategory);
+		System.out.println("\nSearching for: " + searchPhrase);
+		System.out.println("In category: " + selectedCategory);
 		
-		Product productFound = srs.search(selectedCategory, searchPhrase);
+		List<Product> productsFound = srs.search(selectedCategory, searchPhrase);
+		System.out.println("Search result item count: " + productsFound.size());
 		
-		model.addAttribute("productFound", productFound);
+		model.addAttribute("productsFound", productsFound);
 		model.addAttribute("searchPhrase", searchPhrase);
 		model.addAttribute("selectedCategory", selectedCategory);
 		
 		return "search-result";
 	}
-
 }

@@ -1,6 +1,7 @@
 package io.github.morbidreich.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class SearchResultService {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	public Product search(String categoryName, String searchPhrase) {
+	public List<Product> search(String categoryName, String searchPhrase) {
 		
 		Category cat = categoryDAO.getCategories()
 					.stream()
@@ -25,7 +26,7 @@ public class SearchResultService {
 		return cat.getProductList()
 					.stream()
 					.filter(p -> p.getName().contains(searchPhrase))
-					.findFirst().get();
+					.collect(Collectors.toList());
 		
 		
 	}

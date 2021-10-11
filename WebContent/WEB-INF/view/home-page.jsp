@@ -16,10 +16,14 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
 	<div class="container">
-		<h1>Welcome to my training shop!</h1>
+		<div class="mydiv">
+			Welcome to my training shop!
+		</div>
 
 		<!-- search bar -->
 		<f:form action="searchProduct" modelAttribute="passingString"
@@ -50,9 +54,9 @@
 		<h2>database connection test</h2>
 
 		<ul class="list-group">
-		<c:forEach var="products" items="${products}">
-			<li class="list-group-item">${products.id}.${products.name}</li>
-		</c:forEach>
+			<c:forEach var="products" items="${products}">
+				<li class="list-group-item">${products.id}.${products.name}</li>
+			</c:forEach>
 		</ul>
 
 
