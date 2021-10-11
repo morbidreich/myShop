@@ -52,9 +52,6 @@ public class HomeController {
 		String searchPhrase = req.getParameter("searchPhrase");
 		String selectedCategory = req.getParameter("category");
 		
-		System.out.println("\nSearching for: " + searchPhrase);
-		System.out.println("In category: " + selectedCategory);
-		
 		List<Product> productsFound = srs.search(selectedCategory, searchPhrase);
 		System.out.println("Search result item count: " + productsFound.size());
 		
@@ -63,5 +60,20 @@ public class HomeController {
 		model.addAttribute("selectedCategory", selectedCategory);
 		
 		return "search-result";
+	}
+	
+	@RequestMapping("electronics")
+	public String showElectronics() {
+		return "electronics";
+	}
+	
+	@RequestMapping("sport")
+	public String showSport() {
+		return "sport";
+	}
+	
+	@RequestMapping("fashion")
+	public String showFashion() {
+		return "fashion";
 	}
 }

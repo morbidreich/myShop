@@ -1,5 +1,54 @@
-@charset "UTF-8";
+.container {
+	width: 900px;
+	margin: auto;
+	
+	font-family: Arial;
+	
 
-.mydiv {
-	font-size: 45px;
+}
+
+.search-header {
+	font-size: 20px;
+	
+	
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	
+	padding: 10px;
+}
+
+.categories {
+	float: left;
+	width: 180px;
+	
+	border-style: solid;
+	border-width: 1px;
+	border-color: green;
+	
+	padding: 10px;
+}
+
+.main-div {
+	float: left;
+	width: 670px;
+	
+	border-style: solid;
+	border-width: 1px;
+	border-color: blue;
+	
+	padding: 10px;
+	
+}
+
+.footer {
+	width: 900px;
+	
+	border-style: solid;
+	border-width: 1px;
+	border-color: red;
+	
+	position: absolute;
+    bottom: 0;
+	
 }
