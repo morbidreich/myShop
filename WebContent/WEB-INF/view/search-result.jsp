@@ -17,7 +17,7 @@
 	<br>
 	<br> Search result placeholder...
 	<br>
-	<br> Searching for ${searchPhrase} in ${selectedCategory}
+	<br> Searching for ${searchPhrase} in ${category}
 	<br>
 	<hr>
 	<br> Return from Search service:

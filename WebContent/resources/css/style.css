@@ -1,10 +1,13 @@
 .container {
 	width: 900px;
+	height: 200vh;
 	margin: auto;
 	
 	font-family: Arial;
 	
-
+	border-style: solid;
+	border-width: 1px;
+	border-color: teal;
 }
 
 .search-header {
@@ -47,8 +50,4 @@
 	border-style: solid;
 	border-width: 1px;
 	border-color: red;
-	
-	position: absolute;
-    bottom: 0;
-	
 }

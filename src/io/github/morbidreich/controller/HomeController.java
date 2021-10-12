@@ -2,12 +2,11 @@ package io.github.morbidreich.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import io.github.morbidreich.dao.CategoryDAO;
 import io.github.morbidreich.dao.ProductDAO;
@@ -46,21 +45,25 @@ public class HomeController {
 		return "home-page";
 	}
 	
-	@RequestMapping("searchProduct")
-	public String searchProduct(HttpServletRequest req, Model model) {
+	// moves user to search result page
+	@RequestMapping("searchProduct") 
+	public String searchProduct(
+			// access parameters defined in html with "name=" attribute
+			// i previously did that with HttpServletResponse resp, and then
+			// resp.getParameter("name")
+			@RequestParam("searchPhrase") String searchPhrase,
+			@RequestParam("category") String category,
+			Model model) {
 		
-		String searchPhrase = req.getParameter("searchPhrase");
-		String selectedCategory = req.getParameter("category");
-		
-		List<Product> productsFound = srs.search(selectedCategory, searchPhrase);
-		System.out.println("Search result item count: " + productsFound.size());
+		List<Product> productsFound = srs.search(category, searchPhrase);
 		
 		model.addAttribute("productsFound", productsFound);
 		model.addAttribute("searchPhrase", searchPhrase);
-		model.addAttribute("selectedCategory", selectedCategory);
+		model.addAttribute("category", category);
 		
 		return "search-result";
 	}
+	
 	
 	@RequestMapping("electronics")
 	public String showElectronics() {
