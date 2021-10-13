@@ -2,7 +2,7 @@ package io.github.morbidreich.dao;
 
 import java.util.List;
 
-
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,9 +18,9 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	@Transactional
-	public Product getProduct() {
-				
-			return null;
+	public Product getProduct(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Product.class, id);
 	}
 	
 	@Override

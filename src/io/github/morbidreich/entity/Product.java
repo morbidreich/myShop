@@ -27,6 +27,9 @@ public class Product {
 	@Column(name="QUANTITY")
 	private int quantity;
 	
+	@Column(name="description")
+	private String description;
+	
 	public Product() {
 	}
 
@@ -71,6 +74,16 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 
 	@Override
 	public String toString() {

@@ -8,7 +8,7 @@ import io.github.morbidreich.entity.Product;
 
 public interface ProductDAO {
 	
-	public Product getProduct();
+	public Product getProduct(int id);
 	public List<Product> getProducts();
 
 }

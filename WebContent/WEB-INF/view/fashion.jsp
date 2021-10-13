@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Electronics subpage</title>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
+<title>MyShop - ...</title>
 </head>
 <body>
-Fashion subpage!
+	<div class="container">
+		<%@include file="header.jsp"%>
+
+	</div>
 </body>
 </html>

@@ -24,6 +24,8 @@ public class HomeController {
 	@Autowired
 	CategoryDAO categoryDAO;
 	
+	
+	
 	@Autowired
 	SearchResultService srs;
 	
@@ -61,6 +63,8 @@ public class HomeController {
 		model.addAttribute("searchPhrase", searchPhrase);
 		model.addAttribute("category", category);
 		
+		model.addAttribute("greeting", "Welcome dear Customer!");
+		
 		return "search-result";
 	}
 	
@@ -78,5 +82,17 @@ public class HomeController {
 	@RequestMapping("fashion")
 	public String showFashion() {
 		return "fashion";
+	}
+	
+	// temporary method to display product page - will load one product and
+	// display its page with this method
+	// TODO revert to previous logic
+	@RequestMapping("manage")
+	public String manageProduct(Model model) {
+		
+		Product product = productDAO.getProduct(1);
+		model.addAttribute("product", product);
+		
+		return "product-page";
 	}
 }
