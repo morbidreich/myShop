@@ -95,4 +95,13 @@ public class HomeController {
 		
 		return "product-page";
 	}
+	
+	@RequestMapping("/productPage")
+	public String showProductPage(@RequestParam("productId") int id, Model model) {
+		
+		Product product = productDAO.getProduct(id);
+		model.addAttribute("product", product);
+		
+		return "product-page";
+	}
 }

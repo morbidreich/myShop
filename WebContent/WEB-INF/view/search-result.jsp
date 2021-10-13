@@ -22,7 +22,18 @@
 
 		<ul class="list-group">
 			<c:forEach var="productsFound" items="${productsFound}">
-				<li class="list-group-item">${productsFound.name}</li>
+
+
+				<!-- create 'update' link with customer id -->
+				<c:url var="productLink" value="/productPage">
+					<c:param name="productId" value="${productsFound.id}" />
+				</c:url>
+
+				<li class="list-group-item">
+					<a href="${productLink}">
+						${productsFound.name} 
+					</a>
+				</li>
 			</c:forEach>
 		</ul>
 	</div>
