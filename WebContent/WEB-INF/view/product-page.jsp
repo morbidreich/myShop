@@ -22,15 +22,21 @@
 							<figcaption>Fake image placeholder</figcaption>
 						</figure>
 					</td>
-					<td >
+					<td>
 						<h3>Price: ${product.price}</h3>
 						<h4>items left: ${product.quantity}</h4>
-						<input type="submit" value="Add to cart">
+						
+						<!-- put button inside form to use it as link -->
+						<form action="cartResolution">
+							<input type="submit" value="Add to cart">
+						</form>
 					</td>
 				</tr>
 			</table>
-			
-			<p>Product description:<br>${product.description}</p>
+
+			<p>
+				Product description:<br>${product.description}</p>
+			<a href="#" onClick="history.back()">Back</a>
 		</div>
 	</div>
 </body>

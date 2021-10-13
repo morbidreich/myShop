@@ -21,17 +21,24 @@
 		<br> Return from Search service:
 
 		<ul class="list-group">
-			<c:forEach var="productsFound" items="${productsFound}">
+			<c:forEach var="product" items="${productsFound}">
 
 
-				<!-- create 'update' link with customer id -->
+				<!-- create 'product' link with product id as param -->
 				<c:url var="productLink" value="/productPage">
-					<c:param name="productId" value="${productsFound.id}" />
+					<c:param name="productId" value="${product.id}" />
 				</c:url>
+				
+				<c:url var="categoryLink" value="/${product.category.name}"/>
+				
+				
 
 				<li class="list-group-item">
+					<a href="${categoryLink}">${product.category.name}</a> > 
+				
+				
 					<a href="${productLink}">
-						${productsFound.name} 
+						${product.name} 
 					</a>
 				</li>
 			</c:forEach>
