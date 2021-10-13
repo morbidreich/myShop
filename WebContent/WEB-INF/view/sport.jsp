@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<%@include file="header.jsp"%>
-
+		<h1>Sport subpage</h1>
 	</div>
 </body>
 </html>

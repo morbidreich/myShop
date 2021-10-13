@@ -9,6 +9,7 @@
 <body>
 	<div class="container">
 		<%@include file="header.jsp"%>
+		<h1>Electronics subpage</h1>
 
 	</div>
 </body>

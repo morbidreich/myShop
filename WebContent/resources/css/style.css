@@ -13,6 +13,7 @@ body {
 	width: 900px;
 	height: 200vh;
 	margin: auto;
+	padding: 10px;
 	
 	background-color: #f5f5f5;
 	
@@ -27,7 +28,7 @@ body {
 }
 
 .search {
-	font-size: 20px;
+	font-size: medium;
 	
 	background-color: #a1dcff;
 	
@@ -62,8 +63,8 @@ body {
 }
 
 .footer {
-	width: 900px;
-	height: 40px;
+	width: 880px;
+	padding: 10px;
 	background-color: #cccccc;
 	
 	border-style: solid;

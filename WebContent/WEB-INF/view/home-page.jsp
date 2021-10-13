@@ -24,24 +24,27 @@
 
 		<div class="search">
 
-			Welcome to my training shop!
+			<h2>Welcome to my training shop!</h2>
 
 
 			<!-- search bar -->
 			<f:form action="searchProduct" modelAttribute="passingString"
 				method="GET">
 				<!-- search phrase input window -->
+				Search for 
 				<input type="text" name="searchPhrase">
 
 				<!-- category selection dropdown list -->
+				 in 
 				<select name="category">
+					<option>Everywhere</option>
 					<c:forEach var="cat" items="${categories}">
 						<option>${cat.name}</option>
 					</c:forEach>
 				</select>
 
 				<!-- submit button -->
-				<input type="submit" value="Search!">
+				<input type="submit" value="Go!">
 				<br>
 			</f:form>
 		</div>
