@@ -28,18 +28,16 @@ public class UserController {
 	public String addUser(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
+		
 		return "user-form";
 	}
 	
 	@PostMapping("/saveUser")
 	public String saveCustomer(@ModelAttribute("user") User user) {
 		
-		userService.updateUser(user);
+		userService.saveUser(user);
 		return "redirect:/user/userList";
-		
 	}
-	
-	
 	
 	@RequestMapping("/deleteUser")
 	public String deleteUser(@RequestParam(name="userId") int id) {

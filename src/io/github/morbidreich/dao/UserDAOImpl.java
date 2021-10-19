@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	@Transactional
-	public void updateUser(User user) {
+	public void saveUser(User user) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(user);
 	}

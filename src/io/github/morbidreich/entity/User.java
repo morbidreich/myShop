@@ -1,11 +1,14 @@
 package io.github.morbidreich.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class User {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String surname;
@@ -13,7 +16,6 @@ public class User {
 	
 	}
 	public User(String name, String surname) {
-		super();
 		this.name = name;
 		this.surname = surname;
 	}

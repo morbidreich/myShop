@@ -8,18 +8,17 @@
 <title>MyShop - ...</title>
 </head>
 <body>
-<div class="container">
-<%@include file="header.jsp" %>
-(updating name:${user.name} surname:${user.surname})
+	<div class="container">
+		<%@include file="header.jsp"%>
 
-<form:form action="saveUser" modelAttribute="user" method="POST">
-<form:hidden path="id"/>
-<form:input path="name"/>
-<form:input path="surname"/>
-<input type="submit" value="Save"/>
-</form:form>
+		<form:form action="saveUser" modelAttribute="user" method="POST">
+			<form:hidden path="id"/>
+			<form:input path="name" />
+			<form:input path="surname" />
+			<input type="submit" value="Save">
+		</form:form>
 
 
-</div>
+	</div>
 </body>
 </html>
