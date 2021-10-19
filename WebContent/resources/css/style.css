@@ -71,3 +71,7 @@ body {
 	border-width: 0px;
 	border-color: red;
 }
+
+table, th, td {
+	border: 1px solid gray;
+}
