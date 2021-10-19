@@ -68,10 +68,8 @@
 			<br> ${greeting} <br> <br>
 			<hr>
 			<br>
-
-
-
 			<h2>database connection test</h2>
+			<h5>(should list all items in database)</h5>
 
 			<ul class="list-group">
 				<c:forEach var="products" items="${products}">
