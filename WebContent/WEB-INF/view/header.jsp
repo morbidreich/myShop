@@ -1,3 +1,4 @@
+<%@ page trimDirectiveWhitespaces="true" %>
 <div class="header">
 <a href="/my-allegro">HomePage</a> | 
 <a href="/my-allegro/electronics">Electronics</a> | 
