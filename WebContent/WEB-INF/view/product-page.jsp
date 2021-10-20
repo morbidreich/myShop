@@ -1,4 +1,6 @@
-<%@ page trimDirectiveWhitespaces="true" %>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +27,7 @@
 					</td>
 					<td>
 						<h3>Price: ${product.price}</h3>
-						<h4>items left: ${product.quantity}</h4>
-						
-						<!-- put button inside form to use it as link -->
+						<h4>items left: ${product.quantity}</h4> <!-- put button inside form to use it as link -->
 						<form action="cartResolution">
 							<input type="submit" value="Add to cart">
 						</form>
@@ -37,7 +37,25 @@
 
 			<p>
 				Product description:<br>${product.description}</p>
-			<a href="#" onClick="history.back()">Back</a>
+
+			<p>
+				<a href="#" onClick="history.back()">Back</a>
+			</p>
+			
+			<p>
+				${review.text}
+			</p>
+
+			<!-- comment section 
+			<div class="review-form">
+				
+			</div>
+
+			<!-- display comments from database -->
+			<div class="review-display">
+				<p>review display placeholder</p>
+			</div>
+
 		</div>
 	</div>
 </body>

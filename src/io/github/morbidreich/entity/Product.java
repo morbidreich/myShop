@@ -1,10 +1,14 @@
 package io.github.morbidreich.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +33,9 @@ public class Product {
 	
 	@Column(name="description")
 	private String description;
+	
+	@OneToMany(mappedBy="product", fetch = FetchType.EAGER)
+	List<Review> reviews;
 	
 	public Product() {
 	}
@@ -79,9 +86,17 @@ public class Product {
 		return description;
 	}
 
-
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 

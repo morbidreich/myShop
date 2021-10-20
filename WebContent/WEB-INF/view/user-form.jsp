@@ -18,6 +18,8 @@
 			<form:input path="surname" />
 			<input type="submit" value="Save">
 		</form:form>
+		<br>
+		<a href="#" onClick="history.back()">Back</a>
 
 
 	</div>
