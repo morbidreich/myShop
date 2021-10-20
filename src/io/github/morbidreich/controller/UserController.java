@@ -1,5 +1,7 @@
 package io.github.morbidreich.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import io.github.morbidreich.entity.User;
 import io.github.morbidreich.service.UserService;
+import io.github.morbidreich.utils.SortOptions;
+import io.github.morbidreich.utils.UserSortOptions;
 
 @Controller
 @RequestMapping("/user")
@@ -19,8 +23,17 @@ public class UserController {
 	private UserService userService;
 	
 	@RequestMapping("/userList")
-	public String showUsers(Model model) {
-		model.addAttribute("users", userService.getUsers());
+	public String showUsers(
+			Model model,
+			@RequestParam(name="sortBy", required=false) String sortBy,
+			@RequestParam(name="order", required=false) String order) {
+		
+		SortOptions sortOptions = new UserSortOptions(sortBy, order);
+		
+		List<User> users = userService.getUsers(sortOptions);
+		
+		
+		model.addAttribute("users", users);
 		return "user-list";
 	}
 	

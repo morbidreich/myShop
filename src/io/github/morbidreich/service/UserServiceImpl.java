@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import io.github.morbidreich.dao.UserDAO;
 import io.github.morbidreich.entity.User;
+import io.github.morbidreich.utils.SortOptions;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,8 +21,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> getUsers() {
-		return userDAO.getUsers();
+	public List<User> getUsers(SortOptions sortOptions) {
+		return userDAO.getUsers(sortOptions);
 	}
 
 	@Override
