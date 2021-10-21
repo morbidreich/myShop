@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import io.github.morbidreich.dao.CategoryDAO;
 import io.github.morbidreich.dao.ProductDAO;
+import io.github.morbidreich.dao.ReviewDAO;
 import io.github.morbidreich.entity.Category;
 import io.github.morbidreich.entity.Product;
-import io.github.morbidreich.entity.Review;
+import io.github.morbidreich.entity.ReviewWrapper;
 import io.github.morbidreich.service.SearchResultService;
 
 @Controller
@@ -26,7 +27,12 @@ public class HomeController {
 	CategoryDAO categoryDAO;
 
 	@Autowired
+	ReviewDAO reviewDAO;
+	
+	@Autowired
 	SearchResultService srs;
+	
+	
 
 	String searchPhrase;
 
@@ -88,21 +94,21 @@ public class HomeController {
 		Product product = productDAO.getProduct(1);
 		model.addAttribute("product", product);
 
-		return "product-page";
+		return "home-page";
 	}
 
 	@RequestMapping("/productPage")
-	public String showProductPage(@RequestParam("productId") int id, Model model) {
+	public String showProductPage(@RequestParam(name="productId", required=true) int id, Model model) {
 
+		model.addAttribute("reviewWrapper", new ReviewWrapper());
+		model.addAttribute("averageRating", reviewDAO.getAverageRatingForProduct(id));
+		
 		Product product = productDAO.getProduct(id);
 		model.addAttribute("product", product);
-
-		Review review;
-		if (product.getReviews().get(0) != null) {
-			review = product.getReviews().get(0);
-			model.addAttribute("review", review);
-		}
 		
+		
+
+
 		return "product-page";
 	}
 }

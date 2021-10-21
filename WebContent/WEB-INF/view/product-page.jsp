@@ -1,5 +1,7 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +29,16 @@
 					</td>
 					<td>
 						<h3>Price: ${product.price}</h3>
-						<h4>items left: ${product.quantity}</h4> <!-- put button inside form to use it as link -->
+						<h4>items left: ${product.quantity}</h4> 
+						<c:if
+							test="${averageRating > 0}">
+							<h4>
+								Average user rating:
+								<fmt:formatNumber value="${averageRating}" type="number" maxFractionDigits="1"/> 
+								
+							</h4>
+						</c:if> <!-- put button inside form to use it as link -->
+						
 						<form action="cartResolution">
 							<input type="submit" value="Add to cart">
 						</form>
@@ -41,22 +52,34 @@
 			<p>
 				<a href="#" onClick="history.back()">Back</a>
 			</p>
-			
-			<p>
-				${review.text}
-			</p>
 
-			<!-- comment section 
-			<div class="review-form">
-				
-			</div>
 
-			<!-- display comments from database -->
-			<div class="review-display">
-				<p>review display placeholder</p>
-			</div>
+			<c:if test="${empty product.reviews}">
+				<p>No reviews yet, write one!</p>
+			</c:if>
+
+			<form:form action="review/saveReview" modelAttribute="reviewWrapper"
+				method="POST">
+				<form:hidden path="productId" value="${product.id}" />
+				<form:select path="rating">
+					<form:option value="5" label="5" />
+					<form:option value="4" label="4" />
+					<form:option value="3" label="3" />
+					<form:option value="2" label="2" />
+					<form:option value="1" label="1" />
+				</form:select>
+				<form:textarea path="text" />
+				<input type="submit" value="Save">
+			</form:form>
+
+			<c:forEach var="review" items="${product.reviews}">
+				<p>User rating: ${review.rating}</p>
+				<p>${review.text}</p>
+			</c:forEach>
+
 
 		</div>
 	</div>
+
 </body>
 </html>
