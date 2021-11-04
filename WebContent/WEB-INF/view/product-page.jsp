@@ -39,7 +39,8 @@
 							</h4>
 						</c:if> <!-- put button inside form to use it as link -->
 						
-						<form action="cartResolution">
+						<form action="cartResolution" method="POST">
+							<input type="hidden" name="productId" value="${product.id}">
 							<input type="submit" value="Add to cart">
 						</form>
 					</td>

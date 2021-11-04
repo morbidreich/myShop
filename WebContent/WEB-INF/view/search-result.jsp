@@ -15,7 +15,6 @@
 	<div class="container">
 		<%@include file="header.jsp"%>
 
-
 		${greeting} <br> <br> Search result placeholder... <br>
 		<br> Searching for ${searchPhrase} in ${category} <br>
 		<hr>
@@ -24,19 +23,15 @@
 		<ul class="list-group">
 			<c:forEach var="product" items="${productsFound}">
 
-
 				<!-- create 'product' link with product id as param -->
 				<c:url var="productLink" value="/productPage">
 					<c:param name="productId" value="${product.id}" />
 				</c:url>
 				
 				<c:url var="categoryLink" value="/${product.category.name}"/>
-				
-				
 
 				<li class="list-group-item">
 					<a href="${categoryLink}">${product.category.name}</a> > 
-				
 				
 					<a href="${productLink}">
 						${product.name} 
