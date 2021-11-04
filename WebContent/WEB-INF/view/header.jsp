@@ -6,5 +6,5 @@
 <a href="/my-allegro/fashion">Fashion</a> | 
 <a href="/my-allegro/manage">Manage Products</a> |
 <a href="/my-allegro/user/userList">User list</a> |  
-<a href="cart">Shopping cart</a>
+<a href="/my-allegro/cart">Shopping cart</a>
 </div>
