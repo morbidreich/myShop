@@ -63,6 +63,7 @@ public class CartController {
 		
 		model.addAttribute("itemsNo", cart.getProducts().size());
 		model.addAttribute("items", cart.getProducts());
+		model.addAttribute("cart", cart);
 		
 		return "cart";
 	}

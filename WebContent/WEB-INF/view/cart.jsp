@@ -27,6 +27,8 @@
 				<td><a href="cart/remove?id=${product.id}">Remove from cart</a></td>
 			</c:forEach>
 		</table>
+		
+		<h4>total price: ${cart.totalPrice}</h4>
 
 
 		<a href=# onclick="history.back()">Back</a>
